@@ -3,6 +3,10 @@
 
 #include <netinet/in.h>
 
+#define DEFAULTPORT 10000
+#define STEP 100
+#define BACKLOG 5
+
 // Funciones de servidor
 // =====================
 
@@ -38,6 +42,14 @@ void tcp_client_connect(struct tcp_client_t *client, const char *host,
 // Envía y recibe datos
 void tcp_send(int sock, const void *data, size_t size);
 void tcp_recv(int sock, void *data, size_t size);
+
+// Envia y recibe ints
+void tcp_send_size(int sock, uint32_t n);
+uint32_t tcp_recv_size(int sock);
+
+// Envia y recibe archivos con barra de progreso
+void tcp_send_file(int sock, const char *path, int size);
+void tcp_recv_file(int sock, const char *path, int size);
 
 // Cierra la conexión
 void tcp_close(int sock);
