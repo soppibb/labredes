@@ -3,7 +3,7 @@
 
 #include <netinet/in.h>
 
-#define DEFAULTPORT 10000
+#define DEFAULTPORT 11000
 #define STEP 100
 #define BACKLOG 5
 
