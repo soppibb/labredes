@@ -10,7 +10,7 @@ size_t file_size(FILE *fp);
 void read_file(FILE *fp, void *buf, size_t size);
 void write_file(FILE *fp, void *buf, size_t size);
 
-int min(int a, int b) { return a < b ? a : b; }
+int min(int a, int b);
 void progress_bar(int progress);
 
 #endif

@@ -27,17 +27,18 @@ int main(void) {
         tcp_recv(sock, file_name, name_size);
 
         // Recibir el tamaño del archivo
-        int file_size;
-        tcp_recv_size(sock, &file_size);
+        int fsize;
+        tcp_recv_size(sock, &fsize);
 
         // Imprimir informacion del archivo que se esta recibiendo
         printf("Recieving...\n");
         printf("file name: %s\n", file_name);
-        printf("file size: %d bytes\n", file_size);
+        printf("file size: %d bytes\n", fsize);
 
         // Recibir los contenidos del archivo
-        tcp_recv_file(sock, file_name, file_size);
-
+        FILE *file = fopen(file_name, "w+");
+        tcp_recv_file(sock, file, fsize);
+        fclose(file);
         tcp_close(sock);
         break;
     }

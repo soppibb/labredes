@@ -1,4 +1,5 @@
 #include "tcp.h"
+#include "util.h"
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -6,6 +7,7 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void tcp_server_create(struct tcp_server_t *server, int port) {
     // Crear socket de escucha (se guarda en server->listen_sock)

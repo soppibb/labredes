@@ -2,6 +2,7 @@
 #define TCP_H
 
 #include <netinet/in.h>
+#include <stdio.h>
 
 #define DEFAULTPORT 11000
 #define STEP 100
@@ -45,11 +46,11 @@ void tcp_recv(int sock, void *data, size_t size);
 
 // Envia y recibe ints
 void tcp_send_size(int sock, uint32_t n);
-uint32_t tcp_recv_size(int sock);
+void tcp_recv_size(int sock, uint32_t *value);
 
 // Envia y recibe archivos con barra de progreso
-void tcp_send_file(int sock, const char *path, int size);
-void tcp_recv_file(int sock, const char *path, int size);
+void tcp_send_file(int sock, FILE *file, int size);
+void tcp_recv_file(int sock, FILE *file, int size);
 
 // Cierra la conexión
 void tcp_close(int sock);

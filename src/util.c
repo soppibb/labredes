@@ -28,6 +28,7 @@ void write_file(FILE *fp, void *buf, size_t size) {
     }
 }
 
+#define PROGRESS_BAR_LEN 50
 void progress_bar(int progress) {
     int chars = progress * PROGRESS_BAR_LEN / 100;
     printf("\r[");
@@ -37,4 +38,8 @@ void progress_bar(int progress) {
         printf(" ");
     printf("] %d%%", progress);
     fflush(stdout);
+}
+
+int min(int a, int b) { 
+    return a < b ? a : b; 
 }
